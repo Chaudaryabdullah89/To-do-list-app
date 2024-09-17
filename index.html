@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cont">
+        <div class="top">
+            <h1>To Do List App</h1>
+        </div>
+        <div class="search" style="">
+            <form action="">
+            <div class="inputs">
+                <input type="text" placeholder="Enter your Task">
+                <button class="add">Add</button>
+                <button style="width: 150px;" class="removeall">Remove All</button>
+            </form>
+            </div>
+        </div>
+
+        <div class="tasks-container" style="    padding-bottom: 27px;
+">
+          
+        </div>
+    </div>
+    <script>
+ 
+
+   
+        var input = document.querySelector('input');
+        const btn = document.querySelector('.add');
+        var tasksContainer = document.querySelector('.tasks-container');
+var form = document.querySelector('form')
+    function check(){
+        btn.addEventListener('click',function(){
+            var main = document.createElement('div')
+            const ul =  document.createElement('ul')
+            const li = document.createElement('li')
+            li.innerHTML = input.value
+            
+           
+            var cor = document.createElement('div');
+                    cor.classList.add('cros');
+                    var cross = document.createElement('p');
+                    cross.innerHTML = '&#10006';
+                   
+
+
+             main.classList.add('work-store')
+            
+        
+
+
+
+            //apend childs
+            tasksContainer.appendChild(main)
+            main.appendChild(ul)
+            ul.appendChild(li)
+            cor.appendChild(cross);
+            main.appendChild(cor)
+            cor.addEventListener('click',()=>{
+                tasksContainer.removeChild(main)
+             
+            })
+            const removeall = document.querySelector('.removeall')
+             
+                
+             removeall.addEventListener('click',function(){
+                 tasksContainer.removeChild(main)
+                 console.log('yes clicked');
+             })
+        })
+    }
+    form.addEventListener('click',function(e){
+        e.preventDefault()
+        
+    })
+    check()
+
+    </script>
+</body>
+</html>
